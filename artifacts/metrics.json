@@ -1,0 +1,99 @@
+{
+  "track": "nlp",
+  "model": "cointegrated/rubert-tiny2",
+  "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 29098303,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.561480399318237,
+      "f1_macro": 0.5786909792940792,
+      "precision": 0.5628508664876739,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.0380824055031558,
+      "f1_macro": 0.035254710988307,
+      "precision": 0.022296034876479135,
+      "recall": 0.13043478260869565
+    }
+  },
+  "final": {
+    "f1_micro": 0.9338771474477815,
+    "f1_macro": 0.9311668136732815,
+    "precision": 0.9237163814180929,
+    "recall": 0.9442639340164959,
+    "token_f1": 0.9565514414537505,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9525423728813559,
+        "recall": 0.9565957446808511,
+        "f1": 0.9545647558386411,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.8494623655913979,
+        "recall": 0.8805732484076433,
+        "f1": 0.8647380766223612,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.9626865671641791,
+        "recall": 0.9859872611464968,
+        "f1": 0.9741976085588421,
+        "support": 1570
+      }
+    },
+    "validation": {
+      "f1_micro": 0.9318317958547981,
+      "f1_macro": 0.9294456257624734,
+      "precision": 0.9193853427895982,
+      "recall": 0.9446198688365315,
+      "token_f1": 0.9545733998223922
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "eval_split": "validation",
+    "lr": 0.0002,
+    "epochs": 3,
+    "full": {
+      "f1_micro": 0.9318317958547981,
+      "f1_macro": 0.9294456257624734,
+      "precision": 0.9193853427895982,
+      "recall": 0.9446198688365315,
+      "token_f1": 0.9545733998223922,
+      "train_sec": 93.70950388000006,
+      "trainable_params": 29098303,
+      "final_eval_loss": 0.04079053923487663
+    },
+    "freeze": {
+      "f1_micro": 0.6144443058500686,
+      "f1_macro": 0.5961127079169546,
+      "precision": 0.6315384615384615,
+      "recall": 0.5982511537527325,
+      "token_f1": 0.6507443674866651,
+      "train_sec": 24.789305729000034,
+      "trainable_params": 2191,
+      "final_eval_loss": 0.2605099380016327
+    }
+  },
+  "errors": {
+    "correct": 3889,
+    "boundary": 153,
+    "type": 50,
+    "missed": 25,
+    "spurious": 114
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 93.70950388000006,
+  "fast_mode": false
+}
